@@ -1,0 +1,48 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid">
+
+       <i class="fa-solid fa-cube"></i>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">My lists</a>
+              </li>
+              <li class="nav-item">
+                <a><%= link_to "New list", new_list_path, class: "nav-link" %></a>
+
+              </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+    <h1>Save any kind of movies</h1>
+  </div>
+</div>
+  <div class="container py-5">
+      <div class="row">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h3 class="mb-0">My Lists</h3>
+          <%= link_to "Create a movie list", new_list_path, class: "btn btn-success text-white btn-lg " %>
+        </div>
+        <div class="row">
+          <% @lists.each do |list| %>
+            <div class="col-12 col-sm-6  mb-3">
+              <%= link_to list_path(list), class:"text-white text-decoration-none text-center" do %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('logo.png') %>)">
+                  <%= list.name %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+</div>
